@@ -1,0 +1,57 @@
+/* PrivacyPolicy.css */
+
+/* Style the privacy policy container */
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Style the privacy policy heading */
+  .privacy-policy h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Style privacy policy paragraphs */
+  .privacy-policy p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+  
+  /* Style privacy policy links */
+  .privacy-policy a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  /* Style privacy policy links on hover */
+  .privacy-policy a:hover {
+    text-decoration: none;
+  }
+  
+  /* Style privacy policy list items */
+  .privacy-policy ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  /* Style privacy policy list item bullets */
+  .privacy-policy ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Style the contact link (if you have one) */
+  .privacy-policy .contact-link {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  /* Style the contact link on hover */
+  .privacy-policy .contact-link:hover {
+    text-decoration: none;
+  }
