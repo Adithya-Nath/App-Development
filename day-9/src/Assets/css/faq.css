@@ -1,0 +1,45 @@
+/* FAQ.css */
+
+/* Style the FAQ container */
+.faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style the FAQ questions */
+  .faq h3 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the FAQ answers */
+  .faq p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the FAQ list */
+  .faq ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  /* Style the FAQ list items */
+  .faq li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style links within the FAQ answers */
+  .faq a {
+    color: #007bff; /* Link color */
+    text-decoration: underline;
+  }
+  
+  /* Style links on hover */
+  .faq a:hover {
+    text-decoration: none;
+  }

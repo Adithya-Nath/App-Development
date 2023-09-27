@@ -1,0 +1,35 @@
+/* TermsAndConditions.css */
+
+/* Style the terms and conditions container */
+.terms-and-conditions {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Style the terms and conditions heading */
+  .terms-and-conditions h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Style terms and conditions paragraphs */
+  .terms-and-conditions p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+  
+  /* Style terms and conditions links */
+  .terms-and-conditions a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  /* Style terms and conditions links on hover */
+  .terms-and-conditions a:hover {
+    text-decoration: none;
+  }
