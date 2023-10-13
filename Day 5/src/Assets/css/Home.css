@@ -1,0 +1,190 @@
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #fcf9f9;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #030303;
+    color: #fff;
+  }
+  .title_hm{
+    font-size: 42px;
+  }
+  
+  
+  .logo h1 {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  .nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav li {
+    display: inline;
+    margin-right: 20px;
+
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 42px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://www.hunterdonhealthcarepartners.org/wp-content/uploads/2017/02/Blood-Donation-red-background.jpg");
+    background-size: cover;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    padding: 8px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-right: 700px;
+    margin-top: -830px;
+  }
+  
+  .search-button {
+    background-color: #283039;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: -830px;
+    margin-left: -700px;
+    margin-right: 370px;
+    cursor: pointer;
+  }
+  
+  .welcome-text {
+    font-size: 36px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .footer {
+    padding: 20px;
+    background-color: #070707;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .logout-button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    
+  }
+  
+  .logout-button:hover {
+    background-color: #d84315;
+  }
+  
+
+/* Home.css */
+
+/* Add styles for the poster container and moving posters */
+.poster-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.poster {
+  width: 25%;
+  min-width: 300px;
+  background-color: #022c5a;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid #f7f5f5; /* Add a border to separate posters */
+}
+
+.poster:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow when hovered */
+}
+
+.poster h2 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.poster p {
+  font-size: 16px;
+  margin: 0 0 20px;
+}
+
+.explore-button {
+  background-color: #fff;
+  color: #007BFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #007BFF;
+  color: #fff;
+}
+.title_hm{
+  color: #f8f7f6;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

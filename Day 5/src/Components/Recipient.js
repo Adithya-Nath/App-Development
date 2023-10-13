@@ -1,0 +1,213 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addApplication, editApplication, removeApplication } from '../Redux/applicationSlice';
+import { Table, Button, Modal, Form } from 'react-bootstrap';
+import '../Assets/css/donor.css'
+import axiosInstance from './AxiosConfig';
+
+function Recepient() {
+  const applications = useSelector((state) => state.applications);
+  const dispatch = useDispatch();
+
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name:'',
+    bloodtype:'',
+    age:'',
+    weight:'',
+    heamoglobinlevel:'',
+    pulse:'',
+    bloodpressure:''
+  });
+  const [editIndex, setEditIndex] = useState(-1);
+
+  const handleShow = () => {
+    setShowModal(true);
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    setFormData({});
+    setEditIndex(-1);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    if (editIndex === -1) {
+      // Create a new Donor entry
+      axiosInstance
+        .post('http://localhost:8080/api/v1/recepient/post', formData) // Replace with your backend URL
+        .then((response) => {
+          // Handle the response here if needed
+          console.log('Recipient added:', response.data);
+          handleClose();
+        })
+        .catch((error) => {
+          // Handle errors if needed
+          console.error('Error adding recipient:', error);
+        });
+    } else {
+      // Update an existing Donor entry
+      axiosInstance
+        .put('http://localhost:8080/api/v1/recepient/put', formData) // Replace with your backend URL
+        .then((response) => {
+          // Handle the response here if needed
+          console.log('recipient updated:', response.data);
+          handleClose();
+        })
+        .catch((error) => {
+          // Handle errors if needed
+          console.error('Error updating recipient:', error);
+        });
+    }
+  };
+  
+
+  const handleEdit = (index) => {
+    setFormData(applications[index]);
+    setEditIndex(index);
+    handleShow();
+  };
+
+  const handleRemove = (index) => {
+    dispatch(removeApplication(index));
+  };
+
+  return (
+    <div className="container">
+      <h1>Recipient Details</h1>
+      <Button variant="primary" onClick={handleShow}>
+        Add Details
+      </Button>
+      <Table striped bordered hover className="mt-3">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Blood Type</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Haemoglobin Level</th>
+            <th>Pulse</th>
+            <th>Blood Pressure</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {applications.map((app, index) => (
+            <tr key={index}>
+              <td>{app.name}</td>
+              <td>{app.bloodtype}</td>
+              <td>{app.age}</td>
+              <td>{app.Weight}</td>
+              <td>{app.heamoglobinlevel}</td>
+              <td>{app.pulse}</td>
+              <td>{app.bloodpressure}</td>
+              <td>
+                <Button variant="info" onClick={() => handleEdit(index)}>
+                  Add
+                </Button>
+                <Button variant="danger" onClick={() => handleRemove(index)}>
+                  Remove
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{editIndex === -1 ? 'Add Application' : 'Edit Application'}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                value={formData.name || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="bloodtype">
+              <Form.Label>Blood Type</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Blood Type"
+                name="bloodtype"
+                value={formData.bloodtype || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="age">
+              <Form.Label>Age</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Age"
+                name="age"
+                value={formData.age || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="weight">
+              <Form.Label>Weight</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Weight"
+                name="weight"
+                value={formData.weight || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="haemoglobin">
+              <Form.Label>Haemoglobin Level</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Haemoglobin level"
+                name="heamoglobin"
+                value={formData.heamoglobin || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="pulse">
+              <Form.Label>Pulse</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Pulse"
+                name="pulse"
+                value={formData.pulse || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="pgCollegeName">
+              <Form.Label>Blood Pressure</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Blood Pressure"
+                name="bloodpressure"
+                value={formData.bloodpressure || ''}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            {editIndex === -1 ? 'Add' : 'Save Changes'}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+}
+
+export default Recepient;
